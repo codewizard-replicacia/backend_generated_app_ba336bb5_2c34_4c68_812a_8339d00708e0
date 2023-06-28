@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Model">
+            <EntityType HasStream="false" Name="FocusGroup">
+                <Key>
+                    <PropertyRef Name="FGID"/>
+                </Key>
+                <Property Name="FGID" Type="Edm.Int32" isUnique="false"/>
+                <Property Name="NoOfFocusGroups" Type="Edm.Int32" isUnique="false"/>
+                <Property Name="FocusGroupNames" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="FG1ParticipantCount" Type="Edm.Int32" isUnique="false"/>
+                <Property Name="FG1ParticipantNames" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="FG2ParticipantCount" Type="Edm.Int32" isUnique="false"/>
+                <Property Name="FG2ParticipantNames" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="FGTopic" Type="Edm.String" isUnique="false"/>
+                <Property Name="FG1Responses" Type="Edm.String" isUnique="false"/>
+                <Property Name="FG2Responses" Type="Edm.String" isUnique="false"/>
+                <Property Name="ConceptTesting" Type="Edm.String" isUnique="false"/>
+                <Property Name="IdeaGenerated" Type="Edm.String" isUnique="false"/>
+                <NavigationProperty Name="Feedback2" Type="Collection(Model.TargetMarketIdentification)"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="AdvertisingAgency">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="AgencyName" Type="Edm.String" isUnique="false"/>
+                <Property Name="Field" Type="Edm.String" isUnique="false"/>
+                <Property Name="Phnum" Type="Edm.Int64" isUnique="false"/>
+                <Property Name="Address" Type="Edm.String" isUnique="false"/>
+                <Property Name="ID" Type="Edm.Int32" isUnique="false"/>
+                <NavigationProperty Name="Performs" Type="Collection(Model.MarketResearch)"/>
+                <NavigationProperty Name="CompetitorAnalysis" Type="Collection(Model.CompetativeAnalysis)"/>
+                <NavigationProperty Name="Brandevaluation" Type="Collection(Model.BrandPerception)"/>
+                <NavigationProperty Name="Mediabuying" Type="Collection(Model.MediaPlanAndBuying)"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="DataAnalysis">
+                <Key>
+                    <PropertyRef Name="DataAnalysisID"/>
+                </Key>
+                <Property Name="DataAnalysisID" Type="Edm.String" isUnique="false"/>
+                <Property Name="DataAnalysisSummary" Type="Edm.String" isUnique="false"/>
+                <NavigationProperty Name="Feedback3" Type="Collection(Model.TargetMarketIdentification)"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="Survey">
+                <Key>
+                    <PropertyRef Name="SurveyID"/>
+                </Key>
+                <Property Name="SurveyID" Type="Edm.Int32" isUnique="false"/>
+                <Property Name="AudienceCategory" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="Questionnaire" Type="Edm.String" isUnique="false"/>
+                <Property Name="Respondants" Type="Edm.String" isUnique="false"/>
+                <Property Name="ResponseCaptured" Type="Edm.String" isUnique="false"/>
+                <Property Name="DataValidationsInput" Type="Edm.String" isUnique="false"/>
+                <Property Name="Finalreport" Type="Edm.String" isUnique="false"/>
+                <NavigationProperty Name="Feedback1" Type="Collection(Model.TargetMarketIdentification)"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="CompetativeAnalysis">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" isUnique="false"/>
+                <Property Name="DirectorCompetitor" Type="Edm.String" isUnique="false"/>
+                <Property Name="IndirectCompetitor" Type="Edm.String" isUnique="false"/>
+                <Property Name="CompetingProductOrService" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="TargetAudience" Type="Edm.String" isUnique="false"/>
+                <Property Name="MarketSegment" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="USP" Type="Edm.String" isUnique="false"/>
+                <Property Name="KeyMessagetoAudience" Type="Edm.String" isUnique="false"/>
+                <Property Name="Brand" Type="Edm.String" isUnique="false"/>
+                <Property Name="Influencer" Type="Edm.String" isUnique="false"/>
+                <Property Name="StandOutToOurProduct" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="MarketShare" Type="Edm.String" isUnique="false"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="MarketResearch">
+                <Key>
+                    <PropertyRef Name="MRID"/>
+                </Key>
+                <Property Name="MRID" Type="Edm.Int32" isUnique="false"/>
+                <Property Name="ResearchObjective" Type="Edm.String" isUnique="false"/>
+                <Property Name="ObjectiveQuestionnaireSet" Type="Edm.String" isUnique="false"/>
+                <Property Name="TargetMarket" Type="Edm.String" isUnique="false"/>
+                <Property Name="ResearchMethod" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="MarketResearchReport" Type="Edm.String" isUnique="false"/>
+                <Property Name="MarketTrends" Type="Edm.String" isUnique="false"/>
+                <NavigationProperty Name="Does" Type="Collection(Model.Survey)"/>
+                <NavigationProperty Name="Conducts" Type="Collection(Model.FocusGroup)"/>
+                <NavigationProperty Name="Analysis" Type="Collection(Model.DataAnalysis)"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="TargetMarketIdentification">
+                <Key>
+                    <PropertyRef Name="TargetMarketID"/>
+                </Key>
+                <Property Name="TargetMarketID" Type="Edm.Int32" isUnique="false"/>
+                <Property Name="TargetGroupName" Type="Edm.String" isUnique="false"/>
+                <Property Name="TargetGroupAge" Type="Edm.Int32" isUnique="false"/>
+                <Property Name="TarggetGroupGender" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="EducationLevel" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="Occupation" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="IncomeLevel" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="MaritalStatus" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="GeographicLoc" Type="Edm.String" isUnique="false"/>
+                <Property Name="Hobbies" Type="Edm.String" isUnique="false"/>
+                <Property Name="BehaviorNature" Type="Edm.String" isUnique="false"/>
+                <Property Name="PaintPointOrNeeds" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="Needs" Type="Edm.String" isUnique="false"/>
+                <Property Name="Technologybeingused" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="CurlturalBG" Type="Edm.String" isUnique="false"/>
+                <Property Name="InfluencerChoosed" Type="Edm.String" isUnique="false"/>
+                <Property Name="Summary" Type="Edm.String" isUnique="false"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="BrandPerception">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="SurveyResults" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="FGResults" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="OnlineRatingReviews" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="SocialMediafollowing" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="BrandLoyaltyRate" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="BrandTrackingEvaluation" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="Overallresult" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="ID" Type="Edm.Int32" isUnique="false"/>
+            </EntityType>
+            <EntityType HasStream="false" Name="MediaPlanAndBuying">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="MostEffectiveMediaChannel" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="BudgetAllocation" Type="Edm.String" isUnique="false"/>
+                <Property Name="Flighting" Type="Edm.DateTimeOffset" isUnique="false"/>
+                <Property Name="ClientMessagetoaudience" Type="Edm.String" isUnique="false"/>
+                <Property Name="AdPlacementsforclientcost" Type="Edm.String" isUnique="false"/>
+                <Property Name="TrackPlannedAds" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="Monitoredperformance" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="KPIsAre" Type="Edm.Boolean" isUnique="false"/>
+                <Property Name="ID" Type="Edm.Int32" isUnique="false"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="FocusGroups" EntityType="Model.FocusGroup">
+                    <NavigationPropertyBinding Path="Feedback2" Target="TargetMarketIdentifications"/>
+                </EntitySet>
+                <EntitySet Name="AdvertisingAgencies" EntityType="Model.AdvertisingAgency">
+                    <NavigationPropertyBinding Path="Performs" Target="MarketResearches"/>
+                    <NavigationPropertyBinding Path="CompetitorAnalysis" Target="CompetativeAnalysis"/>
+                    <NavigationPropertyBinding Path="Brandevaluation" Target="BrandPerceptions"/>
+                    <NavigationPropertyBinding Path="Mediabuying" Target="MediaPlanAndBuyings"/>
+                </EntitySet>
+                <EntitySet Name="DataAnalysis" EntityType="Model.DataAnalysis">
+                    <NavigationPropertyBinding Path="Feedback3" Target="TargetMarketIdentifications"/>
+                </EntitySet>
+                <EntitySet Name="Surveys" EntityType="Model.Survey">
+                    <NavigationPropertyBinding Path="Feedback1" Target="TargetMarketIdentifications"/>
+                </EntitySet>
+                <EntitySet Name="CompetativeAnalysis" EntityType="Model.CompetativeAnalysis"/>
+                <EntitySet Name="MarketResearches" EntityType="Model.MarketResearch">
+                    <NavigationPropertyBinding Path="Does" Target="Surveys"/>
+                    <NavigationPropertyBinding Path="Conducts" Target="FocusGroups"/>
+                    <NavigationPropertyBinding Path="Analysis" Target="DataAnalysis"/>
+                </EntitySet>
+                <EntitySet Name="TargetMarketIdentifications" EntityType="Model.TargetMarketIdentification"/>
+                <EntitySet Name="BrandPerceptions" EntityType="Model.BrandPerception"/>
+                <EntitySet Name="MediaPlanAndBuyings" EntityType="Model.MediaPlanAndBuying"/>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

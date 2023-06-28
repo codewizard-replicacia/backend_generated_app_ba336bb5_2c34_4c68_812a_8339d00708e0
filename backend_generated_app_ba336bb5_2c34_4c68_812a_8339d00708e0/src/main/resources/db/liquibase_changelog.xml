@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <property name="schemaName" value="generated_app"></property>
+    <property name="author=" value="db-designer"></property>
+    <changeSet id="v1-01-01" author="${author}">
+    
+ <createTable schemaName="${schemaName}" tableName="CompetativeAnalysis">
+	<column name="ID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+     <column name="DirectorCompetitor" type="VARCHAR(250)" />
+    
+     <column name="IndirectCompetitor" type="VARCHAR(250)" />
+    
+     <column name="CompetingProductOrService" type="BOOLEAN" />
+    
+     <column name="TargetAudience" type="VARCHAR(250)" />
+    
+     <column name="MarketSegment" type="BOOLEAN" />
+    
+     <column name="USP" type="VARCHAR(250)" />
+    
+     <column name="KeyMessagetoAudience" type="VARCHAR(250)" />
+    
+     <column name="Brand" type="VARCHAR(250)" />
+    
+     <column name="Influencer" type="VARCHAR(250)" />
+    
+     <column name="StandOutToOurProduct" type="BOOLEAN" />
+    
+     <column name="MarketShare" type="VARCHAR(250)" />
+    
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="DataAnalysis">
+    <column name="DataAnalysisID" type="VARCHAR(250)" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+     <column name="DataAnalysisSummary" type="VARCHAR(250)" />
+    
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="Survey">
+	<column name="SurveyID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+     <column name="AudienceCategory" type="BOOLEAN" />
+    
+     <column name="Questionnaire" type="VARCHAR(250)" />
+    
+     <column name="Respondants" type="VARCHAR(250)" />
+    
+     <column name="ResponseCaptured" type="VARCHAR(250)" />
+    
+     <column name="DataValidationsInput" type="VARCHAR(250)" />
+    
+     <column name="Finalreport" type="VARCHAR(250)" />
+    
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="AdvertisingAgency">
+    <column name="AgencyName" type="VARCHAR(250)" />
+    
+     <column name="Field" type="VARCHAR(250)" />
+    
+     <column name="Phnum" type="BIGINT" />
+    
+     <column name="Address" type="VARCHAR(250)" />
+    
+ 	<column name="ID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="MediaPlanAndBuying">
+    <column name="MostEffectiveMediaChannel" type="BOOLEAN" />
+    
+     <column name="BudgetAllocation" type="VARCHAR(250)" />
+    
+     <column name="Flighting" type="TIMESTAMP" />
+    
+     <column name="ClientMessagetoaudience" type="VARCHAR(250)" />
+    
+     <column name="AdPlacementsforclientcost" type="VARCHAR(250)" />
+    
+     <column name="TrackPlannedAds" type="BOOLEAN" />
+    
+     <column name="Monitoredperformance" type="BOOLEAN" />
+    
+     <column name="KPIsAre" type="BOOLEAN" />
+    
+ 	<column name="ID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="BrandPerception">
+    <column name="SurveyResults" type="BOOLEAN" />
+    
+     <column name="FGResults" type="BOOLEAN" />
+    
+     <column name="OnlineRatingReviews" type="BOOLEAN" />
+    
+     <column name="SocialMediafollowing" type="BOOLEAN" />
+    
+     <column name="BrandLoyaltyRate" type="BOOLEAN" />
+    
+     <column name="BrandTrackingEvaluation" type="BOOLEAN" />
+    
+     <column name="Overallresult" type="BOOLEAN" />
+    
+ 	<column name="ID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="FocusGroup">
+	<column name="FGID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+     <column name="NoOfFocusGroups" type="SERIAL" />
+    
+     <column name="FocusGroupNames" type="BOOLEAN" />
+    
+     <column name="FG1ParticipantCount" type="SERIAL" />
+    
+     <column name="FG1ParticipantNames" type="BOOLEAN" />
+    
+     <column name="FG2ParticipantCount" type="SERIAL" />
+    
+     <column name="FG2ParticipantNames" type="BOOLEAN" />
+    
+     <column name="FGTopic" type="VARCHAR(250)" />
+    
+     <column name="FG1Responses" type="VARCHAR(250)" />
+    
+     <column name="FG2Responses" type="VARCHAR(250)" />
+    
+     <column name="ConceptTesting" type="VARCHAR(250)" />
+    
+     <column name="IdeaGenerated" type="VARCHAR(250)" />
+    
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="MarketResearch">
+	<column name="MRID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+     <column name="ResearchObjective" type="VARCHAR(250)" />
+    
+     <column name="ObjectiveQuestionnaireSet" type="VARCHAR(250)" />
+    
+     <column name="TargetMarket" type="VARCHAR(250)" />
+    
+     <column name="ResearchMethod" type="BOOLEAN" />
+    
+     <column name="MarketResearchReport" type="VARCHAR(250)" />
+    
+     <column name="MarketTrends" type="VARCHAR(250)" />
+    
+ 	
+</createTable>
+ <createTable schemaName="${schemaName}" tableName="TargetMarketIdentification">
+	<column name="TargetMarketID" type="SERIAL" autoIncrement="true" >
+        <constraints nullable="false" primaryKey="true"/>
+    </column>
+     <column name="TargetGroupName" type="VARCHAR(250)" />
+    
+     <column name="TargetGroupAge" type="SERIAL" />
+    
+     <column name="TarggetGroupGender" type="BOOLEAN" />
+    
+     <column name="EducationLevel" type="BOOLEAN" />
+    
+     <column name="Occupation" type="BOOLEAN" />
+    
+     <column name="IncomeLevel" type="BOOLEAN" />
+    
+     <column name="MaritalStatus" type="BOOLEAN" />
+    
+     <column name="GeographicLoc" type="VARCHAR(250)" />
+    
+     <column name="Hobbies" type="VARCHAR(250)" />
+    
+     <column name="BehaviorNature" type="VARCHAR(250)" />
+    
+     <column name="PaintPointOrNeeds" type="BOOLEAN" />
+    
+     <column name="Needs" type="VARCHAR(250)" />
+    
+     <column name="Technologybeingused" type="BOOLEAN" />
+    
+     <column name="CurlturalBG" type="VARCHAR(250)" />
+    
+     <column name="InfluencerChoosed" type="VARCHAR(250)" />
+    
+     <column name="Summary" type="VARCHAR(250)" />
+    
+ 	
+</createTable>
+	
+  <createTable schemaName="${schemaName}" tableName="FocusGroupFeedback2">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="FGID" type="SERIAL" />
+	<column name="TargetMarketID" type="SERIAL" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="MarketResearchConducts">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="MRID" type="SERIAL" />
+	<column name="FGID" type="SERIAL" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="MarketResearchAnalysis">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="MRID" type="SERIAL" />
+	<column name="DataAnalysisID" type="VARCHAR(250)" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="SurveyFeedback1">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="SurveyID" type="SERIAL" />
+	<column name="TargetMarketID" type="SERIAL" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="AdvertisingAgencyPerforms">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="ID" type="SERIAL" />
+	<column name="MRID" type="SERIAL" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="AdvertisingAgencyBrandevaluation">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="ID" type="SERIAL" />
+	<column name="ID" type="SERIAL" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="DataAnalysisFeedback3">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="DataAnalysisID" type="VARCHAR(250)" />
+	<column name="TargetMarketID" type="SERIAL" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="MarketResearchDoes">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="MRID" type="SERIAL" />
+	<column name="SurveyID" type="SERIAL" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="AdvertisingAgencyCompetitorAnalysis">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="ID" type="SERIAL" />
+	<column name="ID" type="SERIAL" />
+</createTable>
+  <createTable schemaName="${schemaName}" tableName="AdvertisingAgencyMediabuying">
+	<column name="Id" type="SERIAL" autoIncrement="true">
+		<constraints primaryKey="true" nullable="false"/>
+	</column>
+	<column name="ID" type="SERIAL" />
+	<column name="ID" type="SERIAL" />
+</createTable>
+
+ 	<addForeignKeyConstraint baseTableName="FocusGroupFeedback2" baseTableSchemaName="${schemaName}"  baseColumnNames="FGID" constraintName="TargetMarketIdentification_FGID_fk"
+	                                  referencedTableName="FocusGroup" referencedTableSchemaName="${schemaName}" referencedColumnNames="FGID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="FocusGroupFeedback2" baseTableSchemaName="${schemaName}"  baseColumnNames="TargetMarketID" constraintName="TargetMarketIdentification_TargetMarketID_fk"
+	                                  referencedTableName="TargetMarketIdentification" referencedTableSchemaName="${schemaName}" referencedColumnNames="TargetMarketID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="MarketResearchConducts" baseTableSchemaName="${schemaName}"  baseColumnNames="MRID" constraintName="FocusGroup_MRID_fk"
+	                                  referencedTableName="MarketResearch" referencedTableSchemaName="${schemaName}" referencedColumnNames="MRID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="MarketResearchConducts" baseTableSchemaName="${schemaName}"  baseColumnNames="FGID" constraintName="FocusGroup_FGID_fk"
+	                                  referencedTableName="FocusGroup" referencedTableSchemaName="${schemaName}" referencedColumnNames="FGID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="MarketResearchAnalysis" baseTableSchemaName="${schemaName}"  baseColumnNames="MRID" constraintName="DataAnalysis_MRID_fk"
+	                                  referencedTableName="MarketResearch" referencedTableSchemaName="${schemaName}" referencedColumnNames="MRID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="MarketResearchAnalysis" baseTableSchemaName="${schemaName}"  baseColumnNames="DataAnalysisID" constraintName="DataAnalysis_DataAnalysisID_fk"
+	                                  referencedTableName="DataAnalysis" referencedTableSchemaName="${schemaName}" referencedColumnNames="DataAnalysisID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="SurveyFeedback1" baseTableSchemaName="${schemaName}"  baseColumnNames="SurveyID" constraintName="TargetMarketIdentification_SurveyID_fk"
+	                                  referencedTableName="Survey" referencedTableSchemaName="${schemaName}" referencedColumnNames="SurveyID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="SurveyFeedback1" baseTableSchemaName="${schemaName}"  baseColumnNames="TargetMarketID" constraintName="TargetMarketIdentification_TargetMarketID_fk"
+	                                  referencedTableName="TargetMarketIdentification" referencedTableSchemaName="${schemaName}" referencedColumnNames="TargetMarketID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="AdvertisingAgencyPerforms" baseTableSchemaName="${schemaName}"  baseColumnNames="ID" constraintName="MarketResearch_ID_fk"
+	                                  referencedTableName="AdvertisingAgency" referencedTableSchemaName="${schemaName}" referencedColumnNames="ID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="AdvertisingAgencyPerforms" baseTableSchemaName="${schemaName}"  baseColumnNames="MRID" constraintName="MarketResearch_MRID_fk"
+	                                  referencedTableName="MarketResearch" referencedTableSchemaName="${schemaName}" referencedColumnNames="MRID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="AdvertisingAgencyBrandevaluation" baseTableSchemaName="${schemaName}"  baseColumnNames="ID" constraintName="BrandPerception_ID_fk"
+	                                  referencedTableName="AdvertisingAgency" referencedTableSchemaName="${schemaName}" referencedColumnNames="ID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="AdvertisingAgencyBrandevaluation" baseTableSchemaName="${schemaName}"  baseColumnNames="ID" constraintName="BrandPerception_ID_fk"
+	                                  referencedTableName="BrandPerception" referencedTableSchemaName="${schemaName}" referencedColumnNames="ID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="DataAnalysisFeedback3" baseTableSchemaName="${schemaName}"  baseColumnNames="DataAnalysisID" constraintName="TargetMarketIdentification_DataAnalysisID_fk"
+	                                  referencedTableName="DataAnalysis" referencedTableSchemaName="${schemaName}" referencedColumnNames="DataAnalysisID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="DataAnalysisFeedback3" baseTableSchemaName="${schemaName}"  baseColumnNames="TargetMarketID" constraintName="TargetMarketIdentification_TargetMarketID_fk"
+	                                  referencedTableName="TargetMarketIdentification" referencedTableSchemaName="${schemaName}" referencedColumnNames="TargetMarketID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="MarketResearchDoes" baseTableSchemaName="${schemaName}"  baseColumnNames="MRID" constraintName="Survey_MRID_fk"
+	                                  referencedTableName="MarketResearch" referencedTableSchemaName="${schemaName}" referencedColumnNames="MRID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="MarketResearchDoes" baseTableSchemaName="${schemaName}"  baseColumnNames="SurveyID" constraintName="Survey_SurveyID_fk"
+	                                  referencedTableName="Survey" referencedTableSchemaName="${schemaName}" referencedColumnNames="SurveyID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="AdvertisingAgencyCompetitorAnalysis" baseTableSchemaName="${schemaName}"  baseColumnNames="ID" constraintName="CompetativeAnalysis_ID_fk"
+	                                  referencedTableName="AdvertisingAgency" referencedTableSchemaName="${schemaName}" referencedColumnNames="ID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="AdvertisingAgencyCompetitorAnalysis" baseTableSchemaName="${schemaName}"  baseColumnNames="ID" constraintName="CompetativeAnalysis_ID_fk"
+	                                  referencedTableName="CompetativeAnalysis" referencedTableSchemaName="${schemaName}" referencedColumnNames="ID"/>
+ 
+ 	<addForeignKeyConstraint baseTableName="AdvertisingAgencyMediabuying" baseTableSchemaName="${schemaName}"  baseColumnNames="ID" constraintName="MediaPlanAndBuying_ID_fk"
+	                                  referencedTableName="AdvertisingAgency" referencedTableSchemaName="${schemaName}" referencedColumnNames="ID"/>
+	                                  
+	<addForeignKeyConstraint baseTableName="AdvertisingAgencyMediabuying" baseTableSchemaName="${schemaName}"  baseColumnNames="ID" constraintName="MediaPlanAndBuying_ID_fk"
+	                                  referencedTableName="MediaPlanAndBuying" referencedTableSchemaName="${schemaName}" referencedColumnNames="ID"/>
+ 
+	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+	    </changeSet>
+</databaseChangeLog>
